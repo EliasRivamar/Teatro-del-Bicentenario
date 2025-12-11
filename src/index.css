@@ -58,10 +58,65 @@
   --font-display: "PlayFair", sans-serif;
   --font-body: "Montserrat", sans-serif;
 
-  --animate-fade-in-up: fade-in-up 1s ease-in-out;
+  --animate-fade-in-up: fade-in-up 6s ease-in-out;
   @keyframes fade-in-up {
     0% { opacity: 0; transform: translateY(40px); }
     100% { opacity: 1; transform: translateY(0); }
+  }
+  --animate-spin: spin 3s linear infinite;
+  @keyframes spin {
+    to {
+      --angle: 1turn;
+    }
+  }
+  
+  --animate-curtain-left: curtain-left 4s ease-in-out forwards;
+  @keyframes curtain-left {
+    0%   { transform: translateX(0);   filter: brightness(0.8); }
+    40%  { transform: translateX(-10%);}
+    100% { transform: translateX(-100%); }
+  }
+
+  --animate-curtain-right: curtain-right 4s ease-in-out forwards;
+  @keyframes curtain-right {
+    0%   { transform: translateX(0);   filter: brightness(0.8); }
+    40%  { transform: translateX(10%);}
+    100% { transform: translateX(100%); }
+  }
+
+  --animate-stage-light: stage-light 2.4s ease-out forwards;
+  @keyframes stage-light {
+    0%   { opacity: 0.95; }
+    60%  { opacity: 0.70; }
+    100% { opacity: 0; }
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0turn;
+}
+
+@layer utilities {
+  .animate-play-running {
+    animation-play-state: running;
+  }
+  .animate-play-paused {
+    animation-play-state: paused;
+  }
+
+  .bg-curtain {
+    background:
+      radial-gradient(circle at 0% 50%, rgba(0,0,0,0.45), transparent 60%),
+      repeating-linear-gradient(
+        90deg,
+        #8b0000 0px,
+        #a00000 6px,
+        #6d0000 12px
+      );
+    filter: brightness(1.05);
+    background-size: cover;
   }
 }
 
@@ -69,24 +124,18 @@
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;              
-  height: 10px;             
+  display: none;         
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;  
+  background: black;  
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgb(6, 7, 8);
+  background-color: rgb(0, 0, 0);
   border-radius: 9999px;             
   border: 2px solid transparent;     
   background-clip: content-box;
-}
-
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: rgb(34, 87, 194);
 }
 
 /* Dark mode*/
@@ -103,7 +152,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(26, 27, 29, 0.5);
+  background-color: rgba(28, 28, 29, 0.5);
   border-radius: 9999px;
   transition: background-color 0.2s ease;
 }

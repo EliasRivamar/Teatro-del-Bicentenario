@@ -2,7 +2,7 @@ import { DropDown } from './DropDown'
 
 export function Header() {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-linear-to-b from-black/90 via-black/50 to-transparent pt-5 pb-16 place-items-center place-content-center">
+    <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-linear-to-b from-black/90 via-black/50 to-transparent pt-5 pb-4 place-items-center place-content-center">
       <button className="cursor-pointer absolute left-5">
         <img src="/logoteatro.png" alt="Logo Teatro del Bicententenario" />
       </button>
