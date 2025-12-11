@@ -1,6 +1,6 @@
 export function DropDown({ title }) {
   return (
-    <div className="text-white text-[1.13rem] rounded-xl hover:bg-white/3 py-1 px-2 relative group place-items-center place-content-center">
+    <div className="text-white font-body text-md rounded-xl  py-1 px-2 relative group place-items-center place-content-center duration-600 transition-all hover:text-amber-600">
       {title}
       <div className="absolute text-md py-1 px-2 hidden group-hover:block rounded-xl w-45 left-0 bg-[rgb(36,36,36)]">
         {title === 'Teatro' ? (
