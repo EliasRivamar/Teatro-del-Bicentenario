@@ -12,24 +12,18 @@ export function CurtainLoader({ onFinish }) {
   return (
     <div className="fixed inset-0 z-9999 pointer-events-none">
 
-      {/* VELO NEGRO QUE SE VA ILUMINANDO */}
-      <div className="absolute inset-0 bg-black/90 animate-stage-light"></div>
+      <div className="absolute inset-0 z-40 curtain-spotlight"></div>
 
-      {/* CONTENEDOR DE TELONES */}
-      <div className="absolute inset-0 flex overflow-hidden">
+      <div
+        id="curtain-left"
+        className="absolute left-0 top-0 h-full w-[60%] -ml-[10%] curtain-fabric lg:animate-curtain-open-left
+        animate-curtain-mobile-left"
+      ></div>
 
-        {/* Telón Izquierdo */}
-        <div
-          className="w-1/2 h-full bg-curtain
-                     animate-curtain-left"
-        />
-
-        {/* Telón Derecho */}
-        <div
-          className="w-1/2 h-full bg-curtain
-                     animate-curtain-right"
-        />
-      </div>
+      <div
+        id="curtain-right"
+        className="absolute right-0 top-0 h-full w-[60%] -mr-[10%] curtain-fabric lg:animate-curtain-open-right animate-curtain-mobile-right"
+      ></div>
     </div>
   )
 }

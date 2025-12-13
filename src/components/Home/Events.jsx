@@ -1,8 +1,9 @@
+import { CalendaryIcon } from '../../icons/Calendary'
 import { Articles } from './ArticleEvents'
 
 export function Events() {
   return (
-    <div className='flex flex-col bg-black lg:h-screen min-h-full py-8 px-15 snap-start snap-always'>
+    <div className='flex flex-col bg-black lg:h-screen min-h-full py-8 px-15'>
       <div className='flex flex-col md:flex-row justify-between items-end mt-15 mb-6'>
         <div>
           <span className='text-primary text-xs font-bold tracking-[0.3em] uppercase block mb-3 pl-1'>
@@ -20,9 +21,7 @@ export function Events() {
           <span className='z-10 text-center text-xs font-bold uppercase tracking-[0.2em] text-white group-hover:text-black transition-colors'>
             Ver Calendario
           </span>
-          {/* <span className='relative z-10 material-symbols-outlined text-lg text-white group-hover:text-black transition-colors'>
-            calendar_month
-          </span> */}
+          <CalendaryIcon/>
         </a>
       </div>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
@@ -35,6 +34,11 @@ export function Events() {
 
         <Articles image={'/jazz.jpg'} day={'18'} month={'Dic'} category={'Música'} title={'Noche de Jazz & Soul'} description={'Disfruta de una velada íntima con los mejores exponentes del jazz internacional en nuestra sala...'} location={'Sala Auditórium'}/> 
       </div>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
     </div>
   )
 }

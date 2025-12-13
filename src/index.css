@@ -53,6 +53,7 @@
   --color-text-secondary-dark: #8A8A8E;
   --color-bor-dark: #3A3A3C;
   --color-surface-dark: #1C1C1E;
+  --bg-teaher-gradient: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.9) 100%);
 
   /*  Typo */
   --font-display: "PlayFair", sans-serif;
@@ -63,60 +64,117 @@
     0% { opacity: 0; transform: translateY(40px); }
     100% { opacity: 1; transform: translateY(0); }
   }
-  --animate-spin: spin 3s linear infinite;
-  @keyframes spin {
-    to {
-      --angle: 1turn;
-    }
+  --animate-fade-in: fade-in .500s ease-in-out;
+  @keyframes fade-in {
+    0% { opacity: 0; transform: translateY(-10px); }
+    100% { opacity: 1; transform: translateY(0); }
   }
   
-  --animate-curtain-left: curtain-left 4s ease-in-out forwards;
-  @keyframes curtain-left {
-    0%   { transform: translateX(0);   filter: brightness(0.8); }
-    40%  { transform: translateX(-10%);}
-    100% { transform: translateX(-100%); }
+  
+  --animate-curtain-open-right: curtain-open-right 5s ease-in-out forwards;
+  @keyframes curtain-open-right {
+    0% {
+      width: 60%;
+      transform: matrix(1, 0, 0, 1, 0, 0);  /* forma normal, sin shear */
+      filter: brightness(0.8);
+    }
+    35% {
+      transform: matrix(1, 0, -0.2, 1, 0, 0); /* pliegue hacia adentro */
+    }
+    100% {
+      width: 15px;
+      transform: matrix(1, 0, -0.2, 1, 0, 0); /* posición final doblada */
+      opacity: 1;
+    }
+  }
+  --animate-curtain-mobile-right: curtain-mobile-right 5s ease-in-out forwards;
+  @keyframes curtain-mobile-right {
+    0% {
+      width: 60%;
+      transform: matrix(1, 0, 0, 1, 0, 0);
+      filter: brightness(0.8);
+    }
+    35% {
+      transform: matrix(1, 0, -0.13, 1, 0, 0); /* menos pliegue */
+    }
+    100% {
+      width: 20px; /* un poco más ancho para móviles */
+      transform: matrix(1, 0, -0.053, 1, 0, 0);
+      opacity: 1;
+    }
   }
 
-  --animate-curtain-right: curtain-right 4s ease-in-out forwards;
-  @keyframes curtain-right {
-    0%   { transform: translateX(0);   filter: brightness(0.8); }
-    40%  { transform: translateX(10%);}
-    100% { transform: translateX(100%); }
+  
+  --animate-curtain-open-left: curtain-open-left 5s ease-in-out forwards;
+  @keyframes curtain-open-left {
+    0% {
+      width: 60%;
+      transform: matrix(-1, 0, 0, 1, 0, 0);
+      filter: brightness(0.8);
+    }
+    35% {
+      transform: matrix(-1, 0, 0.2, 1, 0, 0);
+    }
+    100% {
+      width: 15px;
+      transform: matrix(1, 0, -0.2, 1, 0, 0);
+      opacity: 1;
+    }
+  }
+  --animate-curtain-mobile-left: curtain-mobile-left 5s ease-in-out forwards;
+  @keyframes curtain-mobile-left {
+    0% {
+      width: 60%;
+      transform: matrix(-1, 0, 0, 1, 0, 0);
+      filter: brightness(0.8);
+    }
+    35% {
+      transform: matrix(-1, 0, 0.13, 1, 0, 0); /* menos pliegue */
+    }
+    100% {
+      width: 20px; /* un poco más ancho para móviles */
+      transform: matrix(-1, 0, 0.053, 1, 0, 0);
+      opacity: 1;
+    }
   }
 
-  --animate-stage-light: stage-light 2.4s ease-out forwards;
-  @keyframes stage-light {
+  --animate-curtain-spotlight: curtain-spotlight 2.4s ease-out forwards;
+  @keyframes curtain-spotlight {
     0%   { opacity: 0.95; }
     60%  { opacity: 0.70; }
     100% { opacity: 0; }
   }
 }
 
-@property --angle {
-  syntax: "<angle>";
-  inherits: true;
-  initial-value: 0turn;
-}
-
 @layer utilities {
-  .animate-play-running {
-    animation-play-state: running;
-  }
-  .animate-play-paused {
-    animation-play-state: paused;
+  .curtain-fabric {
+    background:
+      linear-gradient(
+        to right,
+        rgba(0,0,0,0.35),
+        rgba(0,0,0,0.1) 20%,
+        rgba(0,0,0,0.4) 40%,
+        rgba(0,0,0,0.1) 60%,
+        rgba(0,0,0,0.35) 80%
+      ),
+      linear-gradient(
+        to right,
+        #3b0000,
+        #5c0000 25%,
+        #4a0000 50%,
+        #5c0000 75%,
+        #3b0000
+      );
+    background-size: 70px 100%, 50px 100%;
+    background-blend-mode: multiply;
   }
 
-  .bg-curtain {
+  .curtain-spotlight {
     background:
-      radial-gradient(circle at 0% 50%, rgba(0,0,0,0.45), transparent 60%),
-      repeating-linear-gradient(
-        90deg,
-        #8b0000 0px,
-        #a00000 6px,
-        #6d0000 12px
-      );
-    filter: brightness(1.05);
-    background-size: cover;
+      radial-gradient(circle at 30% 40%, rgba(85, 84, 46, 0.089) 0%, rgba(0,0,0,0.5) 60%),
+      radial-gradient(circle at 70% 40%, rgba(85, 84, 46, 0.089) 0%, rgba(0,0,0,0.4) 50%);
+    background-attachment: fixed;
+    animation: var(--animate-curtain-spotlight);
   }
 }
 

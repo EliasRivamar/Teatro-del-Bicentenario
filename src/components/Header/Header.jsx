@@ -1,4 +1,4 @@
-import { DropDown } from './DropDown'
+import { Options } from './Options'
 
 export function Header() {
   return (
@@ -13,6 +13,7 @@ export function Header() {
         >
           Teatro
           <span className="absolute bottom-0 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full"></span>
+          <Options options={['Historia - Patrimonio', 'El Complejo', 'Sistema de Gestión de Calidad', 'Autoridades', 'Nuestro Teatro', 'TB Digital', 'Normas de Sala', 'Horarios', 'Contacto', 'Libro Teatros IberoAmericanos']} />
         </a>
         <a
           className="text-white/90 hover:text-primary text-sm font-medium tracking-[0.15em] uppercase transition-colors duration-300 relative group py-2"
@@ -27,6 +28,7 @@ export function Header() {
         >
           Visitas Guiadas
           <span className="absolute bottom-0 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full"></span>
+          <Options options={['Visitas Guiadas', 'Visitas 360°']} />
         </a>
         <a
           className="text-white/90 hover:text-primary text-sm font-medium tracking-[0.15em] uppercase transition-colors duration-300 relative group py-2"
@@ -34,6 +36,7 @@ export function Header() {
         >
           Formá Parte
           <span className="absolute bottom-0 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full"></span>
+          <Options options={['Convocatorias', 'Programa Canto Popular', 'Programa Para Bailarines']} />
         </a>
         <a
           className="text-white/90 hover:text-primary text-sm font-medium tracking-[0.15em] uppercase transition-colors duration-300 relative group py-2"
@@ -43,11 +46,11 @@ export function Header() {
           <span className="absolute bottom-0 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full"></span>
         </a>
         <a
-          className="text-primary hover:text-white border border-primary hover:border-white px-6 py-2 text-sm font-medium tracking-[0.15em] uppercase transition-all duration-300 rounded-sm"
+          className="text-primary hover:text-white border border-primary hover:border-white px-6 py-2 text-sm font-medium tracking-[0.15em] uppercase transition-all duration-300 rounded-sm group relative"
           href="#"
         >
           Programación
-          <span className="absolute bottom-0 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full"></span>
+          <Options options={['Programación 2025', 'Programación 2024', 'Programación 2023', 'Programación 2022', 'Programación 2021', 'Programación 2020', 'Programación 2019', 'Programación 2018', 'Programación 2017']} />
         </a>
       </div>
     </nav>

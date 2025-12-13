@@ -1,22 +1,22 @@
+import { NewsIcon } from '../../icons/News'
+
 export function News() {
   return (
-    <div className="flex flex-col bg-black lg:h-screen min-h-full py-8 px-15 snap-start snap-always">
+    <div className="flex flex-col bg-black lg:h-screen min-h-full py-8 px-15">
       <div className="mt-15">
-        <header className="flex justify-between items-end mb-8">
+        <header className='flex flex-col md:flex-row justify-between items-end mb-6'>
           <h2 className="font-display text-4xl lg:text-5xl text-gray-100 font-light tracking-wide">
             Novedades del Teatro
           </h2>
           <a
-            className="group relative inline-flex items-center gap-3 px-8 py-3 border border-white/10 hover:border-primary/70 rounded-sm transition-all duration-300 mt-8 md:mt-0 overflow-hidden"
+            className="group relative isolate inline-flex items-center gap-3 px-8 py-3 border border-white/10 hover:border-primary/70 rounded-sm transition-all duration-300 mt-8 md:mt-0 overflow-hidden"
             href="#"
           >
             <span className="absolute inset-0 bg-primary/70 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out origin-left"></span>
-            <span className="relative z-10 text-xs font-bold uppercase tracking-[0.2em] text-white group-hover:text-black transition-colors">
-              Todas las Novedades
+            <span className="z-10 text-center text-xs font-bold uppercase tracking-[0.2em] text-white group-hover:text-black transition-colors">
+              Ver Novedades
             </span>
-            {/* <span className='relative z-10 material-symbols-outlined text-lg text-white group-hover:text-black transition-colors'>
-            calendar_month
-          </span> */}
+            <NewsIcon/>
           </a>
         </header>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
@@ -96,6 +96,11 @@ export function News() {
             </div>
           </article>
         </div>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
       </div>
     </div>
   )
